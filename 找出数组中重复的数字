@@ -1,0 +1,22 @@
+/**
+*       解法一 使用HashSet(哈希表)中元素唯一的特性
+*       时间复杂度：O(1) 空间复杂度O(n) 
+*       哈希表会产生额外的空间开销
+*/
+
+class Solution{
+        public int FindRepeatNumber(int[] nums){
+                //新建一个HashSet表 用来储存数组
+                HashSet<Integer> hashset = new HashSet<>();
+                //一般情况下会将数组的长度用n表示出来，后续方便使用
+                int n = nums.length;
+                //将数组中的元素存入HashSet中
+                for(int x : nums){
+                        //在将数组中的元素add进hashset前，判断是否已经存在，如果已经存在，则这个重复的数被找到
+                        if(hashset.contains(x)) return x;
+                        //如果不存在就将该元素add进hashset
+                        else hashset.add(x);
+                }
+                return -1;
+        }
+}
